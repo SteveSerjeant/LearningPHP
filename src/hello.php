@@ -138,7 +138,27 @@ is $candy, so grab some of those too,</p>\n\n";
 
 echo "<p>... and of course, \"May the Force be With You!\"</p>";
 
+//2.2 Logical Operators Examples
+echo '<br>';
+$a = 9 > 5;     //true
+$b = 10 != 10;  //false
+$c = $a && $b;  //false
+$d = $a || $b;  //true
+$e = $b && $c;  //false
+$f = $a || $d;  //true
 
+$logic = array($a, $b, $c, $d, $e, $f,);
+echo '<pre>';
+print_r($logic);    //using print_r only shows 1 for true, 0 is blank or null
+echo '</pre>';
+echo '<br>';
 
+echo '<pre>';
+var_dump($logic);    //shows both true and false
+echo '</pre>';
+echo '<br>';
+
+$c = $a and $b; //is treated as ($c = $a) and $b which is true
+var_dump($c);
 
 
