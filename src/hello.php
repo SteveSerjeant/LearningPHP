@@ -194,5 +194,114 @@ $name = $name ?: 'Joe';
 
 echo '<br>';
 echo $name;
+echo '<br>';
+
+//2.5 Switch statements
+
+$total = 10;
+
+switch ($total){
+    case 1:
+        echo '$total is 1';
+        break;
+
+    case 2:
+        echo '$total is 2';
+        break;
+
+    default:
+        echo '$total is more than 2.';
+
+}
+echo '<br>';
+
+//his index for switch statements
+
+//function add_to_x ($x){
+//    return $x +5;
+//}
+//
+//$x = 0;
+//
+//$result = match($x){
+//    -2, -1, 0 => add_to_x($x),
+//    1 => '$x is 1',
+//    2 => '$x is 2',
+//    default => '$x is neither 1 nor 2',
+//};
+//echo $result;
+//echo '<br>';
+//
+//$result = match (true){
+//    $x <= 0 => '$x is not positive',
+//    $x == 1 => '$x is 1',
+//    $x == 2 => '$x is 2',
+//    default => '$x is neither 1 nor 2',
+//};
+//
+//echo $result;
+//echo '<br>';
+
+
+$turtle = 'Leo';
+$bandana = '';
+
+switch ($turtle){
+
+    case 'Leo':
+        $bandana = 'blue';
+        break;
+
+    case 'Raph':
+        $bandana = 'red';
+        break;
+
+    case 'Mike':
+        $bandana = 'orange';
+        break;
+
+    case 'Don':
+        $bandana = 'purple';
+        break;
+}
+
+echo "<p>$bandana</p>";
+echo '<br>';
+//
+//$turtle = 'Don';
+//$bandana = match ($turtle){
+//    'Leo' => 'blue',
+//    'Raph' => 'red',
+//    'Mikey' => 'orange',
+//    'Don' => 'purple',
+//    default => 'green',
+//};
+//
+//echo $bandana;
+//echo '<br>';
+
+
+// 2.7 Challenge solution
+
+$min = 1;
+$max = 50;
+$guess = 15;
+//
+$num = 15;
+
+if ($guess < $min || $guess > $max){
+    echo '<p>Your guess is out of range.</p>';
+    exit();
+}
+
+if ($num == $guess){
+    echo '<h3>That\'s Correct!</h3>';
+} elseif ($num > $guess){
+    echo '<p>Sorry - that guess is too low.</p>';
+} else {
+    echo '<p>Sorry - that guess is too high.</p>';
+}
+
+print_r($num);
 
 
