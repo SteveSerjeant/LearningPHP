@@ -38,7 +38,7 @@ foreach ($colours as $colour){
     echo "<p>$colour</p>";
 }
 
-//Associative Array copied from hello.php for this example
+//Associative Array copied from 01hello.php for this example
 
 $home_towns = array(
     'Joe' => 'Middletown, NY',
