@@ -79,5 +79,50 @@ if(isPalindrome($forChecking)) {
     echo "<p>$forChecking is not a palindrome</p><br>";
 }
 
+//5.4 Union typing variables - will not work until sort out issue with PHP 8.0
+
+//function double (int|float|null $a) {
+//    return $a * 2;
+//}
+//
+//echo double (3.4);
+
+// Named Arguments
+
+function math ($a, $b = 2, $op = 'multiply'){
+
+    if ('add' == $op){
+        return $a + $b;
+    }
+    else if ('sub ' == $op){
+        return $a - $b;
+    }
+    else if ('divide' == $op){
+        return $a / $b;
+    }
+
+    return $a * $b;
+}
+
+echo math (4);
+echo '<br>';
+echo math (4, 3, 'add');
+echo '<br>';
+
+// the following will only work in PHP8
+//echo math(12, op: 'add', b: 12);
+//echo '<br>';
+
+//5.6 Anonymous functions
+
+$names = array('Joe', 'Erin', 'Teresa', 'Louis');
+usort ( $names, function ($a, $b){
+    return $a[1] <=> $b[1];
+});
+?>
+
+<pre>
+    <?php print_r($names);?>
+</pre>
 
 
