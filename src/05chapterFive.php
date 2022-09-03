@@ -122,7 +122,106 @@ usort ( $names, function ($a, $b){
 ?>
 
 <pre>
-    <?php print_r($names);?>
+    <?php print_r($names);
+    echo '<br>';
+    ?>
+
 </pre>
+
+
+<?php
+// 5.8 define a simple person class
+
+class Person {
+    var $name;
+    var $age;
+    var $birthday = false;
+
+    function __construct ( $name, $age ){
+        $this->name = $name;
+        $this->age = $age;
+    }
+
+    public function get_name(){
+        return $this->name;
+    }
+
+    public function get_age() {
+        return $this->age;
+    }
+
+    public function set_name($new_name) {
+        $this->name = $new_name;
+    }
+
+    public function set_birthday($b) {
+        $this->birthday = $b;
+        $this->update_age ();
+    }
+
+    private function update_age() {
+        $this->age = ($this->birthday) ? ++$this->age : $this->age;
+    }
+
+}
+
+$joe = new Person('Joe', 35);
+$rob = new Person('Rob', 30);
+
+echo $joe->get_name() . '<br>';
+echo $rob->get_name() . '<br>';
+
+$joe->set_birthday(true);
+echo $joe->get_age();
+echo '<br>';
+
+//5.10 and 5.11 challenge: sort an array of objects
+
+class personForChallenge {
+    var $first_name;
+    var $last_name;
+
+    function __construct ($fn, $ln) {
+        $this->first_name = $fn;
+        $this->last_name = $ln;
+    }
+
+    public function get_first_name() {
+        return $this->first_name;
+    }
+
+    public function get_last_name (){
+        return $this->last_name;
+    }
+}
+
+$rob = new personForChallenge('Rob', 'Casabona');
+$joe = new personForChallenge('Joe', 'Casabona');
+$erin = new personForChallenge('Erin', 'Casabona');
+$steve = new personForChallenge('Steve', 'Wozniack');
+$bill = new personForChallenge('Bill', 'Gates');
+$walt = new personForChallenge('Walt', 'Disney');
+$bob = new personForChallenge('Bob', 'Iger');
+
+// array for challenge
+$people = array ($rob, $joe, $erin, $steve, $bill, $walt, $bob);
+
+usort( $people, function ($a, $b) {
+    return [$a->get_last_name(), $a->get_first_name()] <=> [$b->get_last_name(), $b->get_first_name()];
+});
+
+?>
+
+<pre>
+    <?php print_r($people) . '<br>'?>
+</pre>
+
+
+
+
+
+
+
+
 
 
