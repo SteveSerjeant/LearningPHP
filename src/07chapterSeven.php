@@ -29,6 +29,8 @@
 $a = 45;
 //error on line above, missing ;
 echo "hello";
+echo '<br>';
+echo '<br>';
 //syntax error on line above as no quotes
 
 $b = array( 'red' => 'Stop',
@@ -44,7 +46,35 @@ echo '$a is empty.';
 // Variables
 $name = "Joe";
 
+// Try/catch statements
 
+//must return positive integer
+function multiply ($a, $b): float
+{
+    $x = $a * $b;
+    if ( $x <0 ) {
+        throw new Exception("The result is not positive!");
+    }
+    else {
+        return $x;
+    }
+}
 
+try {
+    echo multiply (-5, 4);
+}catch ( Exception $e){
+    echo $e->getMessage();
+}
+
+//the following is the code above modified for PHP8.0 including a log message
+//instead of the echo getMessage
+//function multiply($a, $b) {
+//    return ( ( $a * $b ) > 0 ) ? $a * $b : throw new Exception( "The result is not positive." );
+//}
+//try {
+//    echo multiply( -5, 4 );
+//} catch( Exception ) {
+//    error_log( 'The result was not positive.' );
+//}
 
 
