@@ -22,6 +22,7 @@ if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
             $output = str_replace(')', '', $output);
             echo $output, "<br>";
 
+
         }
 
 
@@ -41,3 +42,29 @@ var_dump($match);
 <pre>
     <?php print_r($match); ?>
 </pre>
+
+<?php
+$file = file("C:\Users\sarge\source\xxxx.xml");
+foreach ($file as $line){
+
+    //Get IP Address
+    if (strpos($line, 'addrtype="ipv4"') == TRUE){
+        preg_match('/addr=".* addrtype/',$line,$results);
+        $ip = implode(" ",$results);
+        $ip = ltrim($ip, 'addr="');
+        $ip = rtrim($ip, '" addrtype');
+        print "<br><strong><u>Device</u></strong><br>";
+        print "IP Address:  $ip<br>";
+    }
+
+    //Get Hostname
+    if (strpos($line, 'type="PTR"') == TRUE){
+        preg_match('/name=".*" type/',$line,$results);
+        $hostname = implode(" ",$results);
+        $hostname = ltrim($hostname,'name="');
+        $hostname = rtrim($hostname, ' type');
+        $hostname = rtrim($hostname, '"');
+        print "Hostname:  $hostname<br>";
+    }
+}
+?>
