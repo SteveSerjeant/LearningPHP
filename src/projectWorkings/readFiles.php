@@ -45,26 +45,82 @@ var_dump($match);
 
 <?php
 $file = file("C:\Users\sarge\source\xxxx.xml");
-foreach ($file as $line){
+//foreach ($file as $line){
+//
+//    //Get IP Address
+//    if (strpos($line, 'addrtype="ipv4"') == TRUE){
+//        preg_match('/addr=".* addrtype/',$line,$results);
+//        $ip = implode(" ",$results);
+//        $ip = ltrim($ip, 'addr="');
+//        $ip = rtrim($ip, '" addrtype');
+//        print "<br><strong><u>Device</u></strong><br>";
+//        print "IP Address:  $ip<br>";
+//    }
+//
+//    //Get Hostname
+//    if (strpos($line, 'type="PTR"') == TRUE){
+//        preg_match('/name=".*" type/',$line,$results);
+//        $hostname = implode(" ",$results);
+//        $hostname = ltrim($hostname,'name="');
+//        $hostname = rtrim($hostname, ' type');
+//        $hostname = rtrim($hostname, '"');
+//        print "Hostname:  $hostname<br>";
+//    }
+//}
 
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'mysql';
+$DATABASE_NAME = 'securitydashboard';
+
+$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
+if ($conn === false)
+
+    die("ERROR: Could Not Connect. " . mysqli_connect_error());
+
+$ipAddr;
+$hostName;
+$timeStamp;
+
+foreach ($file as $line) {
     //Get IP Address
-    if (strpos($line, 'addrtype="ipv4"') == TRUE){
-        preg_match('/addr=".* addrtype/',$line,$results);
-        $ip = implode(" ",$results);
-        $ip = ltrim($ip, 'addr="');
-        $ip = rtrim($ip, '" addrtype');
+    if (strpos($line, 'addrtype="ipv4"') == TRUE) {
+        preg_match('/addr=".* addrtype/', $line, $results);
+        $ipAddr = implode(" ", $results);
+        $ipAddr = ltrim($ipAddr, 'addr="');
+        $ipAddr = rtrim($ipAddr, '" addrtype');
         print "<br><strong><u>Device</u></strong><br>";
-        print "IP Address:  $ip<br>";
+        print "IP Address:  $ipAddr<br>";
     }
 
     //Get Hostname
-    if (strpos($line, 'type="PTR"') == TRUE){
-        preg_match('/name=".*" type/',$line,$results);
-        $hostname = implode(" ",$results);
-        $hostname = ltrim($hostname,'name="');
-        $hostname = rtrim($hostname, ' type');
-        $hostname = rtrim($hostname, '"');
-        print "Hostname:  $hostname<br>";
+    if (strpos($line, 'type="PTR"') == TRUE) {
+        preg_match('/name=".*" type/', $line, $results);
+        $hostName = implode(" ", $results);
+        $hostName = ltrim($hostName, 'name="');
+        $hostName = rtrim($hostName, ' type');
+        $hostName = rtrim($hostName, '"');
+        print "Hostname:  $hostName<br>";
     }
+
+//Add Values to Database
+    if (strpos($line, '/host>') == TRUE) {
+        $timeStamp = date('Y-m-d H:i:s');
+        $sql = "insert into ipaddresses(address,description, added) values ('$ipAddr','$hostName', '$timeStamp')";
+
+        if ($conn->query($sql) === TRUE){
+            echo "DATA Added: $ipAddr - $hostName<br>";
+        }
+        else {
+            echo "ERROR: ".$sql."<br>".$conn->error;
+        }
+        $ipAddr = " ";
+        $hostName = " ";
+    }
+
 }
+
+$conn->close();
+
 ?>
