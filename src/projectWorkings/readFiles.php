@@ -24,19 +24,22 @@ if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
 echo '<br><br>';
 
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = 'mysql';
-$DATABASE_NAME = 'securitydashboard';
+//$DATABASE_HOST = 'localhost';
+//$DATABASE_USER = 'root';
+//$DATABASE_PASS = 'mysql';
+//$DATABASE_NAME = 'securitydashboard';
+//
+//$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
-$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+//if ($conn === false){
+//
+//    die ("ERROR: Could not connect. " . mysqli_connect_error());
+//}
 
-if ($conn === false){
+$mysqli = new mysqli("localhost","root","mysql","securitydashboard");
 
-    die ("ERROR: Could not connect. " . mysqli_connect_error());
-}
+$file
 
-$file = file('C:\Users\sarge\source\servicesFile.xml');
 $ip;
 $hostname;
 $port;
@@ -96,15 +99,23 @@ foreach($file as $line){
         $timestamp = date('Y-m-d');
 //        $portList = implode(", ",$portArray);
 //        $sql = "insert into ipAddresses(address,description, added) values ('$ip','$hostname','$timestamp')";
-        $stmt = $mysqli->prepare("INSERT INTO ipAddresses(address,description, added) VALUES (?,?,?)");
-        $stmt->bind_param("sss", $ip,$hostname,$timestamp);
-        $stmt->execute();
+//        $stmt = $mysqli->prepare("INSERT INTO ipAddresses(address,description, added) VALUES (?,?,?)");
+//        $stmt->bind_param("sss", $ip,$hostname,$timestamp);
+//        $stmt->execute();
 
-        if ($conn->query($stmt) === TRUE) {
-            echo "Data Added: $ip  - $hostname - $timestamp <br>";
-        } else {
-            echo "Error: ".$stmt."<br>".$conn->error;
+//        if ($mysqli->query($stmt) === TRUE) {
+//            echo "Data Added: $ip  - $hostname - $timestamp <br>";
+//        } else {
+//            echo "Error: ".$stmt."<br>".$mysqli->error;
+//        }
+
+        $stmt2 = $mysqli->prepare("INSERT INTO ports(address, portid, state) VALUES (?,?,?)");
+        foreach ($line as $stmt2){
+            $stmt2->bind_param("sss",$ip, $port, $state);
+            $stmt2->execute();
         }
+
+
 
 //        $sql2 = "insert into ports(address, portid,state) values ('$ip','$port','$state')";
 //
@@ -129,6 +140,6 @@ foreach($file as $line){
 
 }
 
-$conn->close();
+$mysqli->close();
 
 ?>
