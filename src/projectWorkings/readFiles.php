@@ -24,24 +24,25 @@ if ($file = fopen("C:\Users\sarge\source\xxxx.txt", "r")){
 echo '<br><br>';
 
 
-//$DATABASE_HOST = 'localhost';
-//$DATABASE_USER = 'root';
-//$DATABASE_PASS = 'mysql';
-//$DATABASE_NAME = 'securitydashboard';
-//
-//$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = 'mysql';
+$DATABASE_NAME = 'securitydashboard';
 
-//if ($conn === false){
-//
-//    die ("ERROR: Could not connect. " . mysqli_connect_error());
-//}
+$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
+if ($conn === false){
+
+    die ("ERROR: Could not connect. " . mysqli_connect_error());
+}
 
 $mysqli = new mysqli("localhost","root","mysql","securitydashboard");
 
-$file
+$file = file("C:\Users\sarge\source\servicesFile.xml");
 
 $ip;
 $hostname;
+$mac;
 $port;
 $state;
 $portArray = array();
@@ -61,6 +62,14 @@ foreach($file as $line){
         echo "IP Address: ".$ip."<br>";
     }
 
+    //Get MAC Address
+    if (strpos($line, 'addrtype="mac"') == TRUE){
+        preg_match('/addr=".*" addrtype/',$line,$results);
+        $mac = implode(" ",$results);
+        $mac = ltrim($mac,'addr="');
+        $mac = rtrim($mac, '" addrtype');
+        print "MAC Address: $mac<br>";
+    }
 
 
     //Get Hostname
@@ -95,25 +104,25 @@ foreach($file as $line){
     }
 
     //Add Values to Database
-    if (strpos($line, '/host>') == TRUE){
-        $timestamp = date('Y-m-d');
+//    if (strpos($line, '/host>') == TRUE){
+//        $timestamp = date('Y-m-d H:m');
 //        $portList = implode(", ",$portArray);
-//        $sql = "insert into ipAddresses(address,description, added) values ('$ip','$hostname','$timestamp')";
-//        $stmt = $mysqli->prepare("INSERT INTO ipAddresses(address,description, added) VALUES (?,?,?)");
-//        $stmt->bind_param("sss", $ip,$hostname,$timestamp);
+//        $sql = "insert into ipAddresses(address,description, mac, added) values ('$ip','$hostname','$mac','$timestamp')";
+//        $stmt = $mysqli->prepare("INSERT INTO ipAddresses(address,description, mac, added) VALUES (?,?,?,?)");
+//        $stmt->bind_param("ssss", $ip,$hostname, $mac, $timestamp);
 //        $stmt->execute();
 
-//        if ($mysqli->query($stmt) === TRUE) {
+//        if ($mysqli->query($sql) === TRUE) {
 //            echo "Data Added: $ip  - $hostname - $timestamp <br>";
 //        } else {
-//            echo "Error: ".$stmt."<br>".$mysqli->error;
+//            echo "Error: ".$sql."<br>".$mysqli->error;
 //        }
 
-        $stmt2 = $mysqli->prepare("INSERT INTO ports(address, portid, state) VALUES (?,?,?)");
-        foreach ($line as $stmt2){
-            $stmt2->bind_param("sss",$ip, $port, $state);
-            $stmt2->execute();
-        }
+//        $stmt2 = $mysqli->prepare("INSERT INTO ports(address, portid, state) VALUES (?,?,?)");
+//        foreach ($line as $stmt2){
+//            $stmt2->bind_param("sss",$ip, $port, $state);
+//            $stmt2->execute();
+//        }
 
 
 
@@ -128,18 +137,18 @@ foreach($file as $line){
 
 
         $ip = " ";
-//        $mac = " ";
+        $mac = " ";
 //        $vendor = " ";
         $hostname = " ";
         $port = " ";
         $state = " ";
-//        unset($portArray);
-//        $portArray = array();
-//        $portList = " ";
-    }
+        unset($portArray);
+        $portArray = array();
+        $portList = " ";
+//    }
 
 }
 
 $mysqli->close();
 
-?>
+//?>

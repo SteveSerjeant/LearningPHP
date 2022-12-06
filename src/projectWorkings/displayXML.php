@@ -1,41 +1,30 @@
-<?php
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = 'mysql';
-$DATABASE_NAME = 'securitydashboard';
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+<!--<h1>W3Schools Internal Note</h1>-->
+<!--<div>-->
+<!--    <b>Port:</b> <span id="port"></span><br>-->
+<!--    <b>Status:</b> <span id="portid"></span><br>-->
+<!--    <b>Message:</b> <span id="message"></span>-->
+<!--</div>-->
+<!---->
+<!--<script>-->
+<!--    var xmlhttp, xmlDoc;-->
+<!--    xmlhttp = new XMLHttpRequest();-->
+<!--    xmlhttp.open("GET", "servicesFile.xml", false);-->
+<!--    xmlhttp.send();-->
+<!--    xmlDoc = xmlhttp.responseXML;-->
+<!--    document.getElementById("port").innerHTML=-->
+<!--        xmlDoc.getElementsByTagName("portid")[0].childNodes[0].nodeValue;-->
+<!--    document.getElementById("portid").innerHTML=-->
+<!--        xmlDoc.getElementsByTagName("from")[0].childNodes[0].nodeValue;-->
+<!--    document.getElementById("message").innerHTML=-->
+<!--        xmlDoc.getElementsByTagName("body")[0].childNodes[0].nodeValue;-->
+<!--</script>-->
+<!---->
+<!--</body>-->
+<!--</html>-->
 
-$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
-if ($conn === false){
 
-    die ("ERROR: Could not connect. " . mysqli_connect_error());
-}
-
-if ($conn->connect_error) {
-    die("Connection Error: ".$conn->connect_error);
-}
-
-$sql = "select * from log";
-$result = $conn->query($sql);
-
-$splitTrigger;
-
-echo "<h1>NMAP Scan Report</h1>";
-
-if ($result->num_rows > 0){
-    echo "<table>";
-    while($row = $result->fetch_assoc() ){
-        if ($row["timestamp"] != $splitTrigger) {
-            echo "<tr><td>Scan At: ".date("h:i:sa d-m-Y",$row['timestamp'])."</td></tr>";
-            $splitTrigger = $row["timestamp"];
-        }
-        echo "<tr><td>".$row["ip"] ."</td><td>" .$row["mac"]."</td><td>" .$row["vendor"]."</td><td>" .$row["ports"]."</td><td>" .$row["timestamp"]."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 records";
-}
-$conn->close();
-
-?>

@@ -103,24 +103,24 @@ foreach($file as $line){
     }
 
     //Add Values to Database
-    if (strpos($line, '/host>') == TRUE){
-        $timestamp = date('Y-m-d');
-        $portList = implode(", ",$portArray);
-        $sql = "insert into log(ip,mac,vendor,hostname,ports,timestamp) values ('$ip','$mac','$vendor','$hostname','$portList','$timestamp')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Data Added: $ip  - $mac - $vendor - $hostname - $portList - $timestamp <br>";
-        } else {
-            echo "Error: ".$sql."<br>".$conn->error;
-        }
-        $ip = " ";
-        $mac = " ";
-        $vendor = " ";
-        $hostname = " ";
-        unset($portArray);
-        $portArray = array();
-        $portList = " ";
-    }
+//    if (strpos($line, '/host>') == TRUE){
+//        $timestamp = date('Y-m-d');
+//        $portList = implode(", ",$portArray);
+//        $sql = "insert into log(ip,mac,vendor,hostname,ports,timestamp) values ('$ip','$mac','$vendor','$hostname','$portList','$timestamp')";
+//
+//        if ($conn->query($sql) === TRUE) {
+//            echo "Data Added: $ip  - $mac - $vendor - $hostname - $portList - $timestamp <br>";
+//        } else {
+//            echo "Error: ".$sql."<br>".$conn->error;
+//        }
+//        $ip = " ";
+//        $mac = " ";
+//        $vendor = " ";
+//        $hostname = " ";
+//        unset($portArray);
+//        $portArray = array();
+//        $portList = " ";
+//    }
 
 }
 

@@ -1,0 +1,389 @@
+# Nmap 7.92 scan initiated Fri Nov 25 00:13:10 2022 as: nmap -sV -oN 221125.txt 192.168.0.1-50
+WARNING: Service 192.168.0.1:4444 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+WARNING: Service 192.168.0.1:4567 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+Nmap scan report for SkyRouter.Home (192.168.0.1)
+Host is up (0.0046s latency).
+Not shown: 993 closed tcp ports (reset)
+PORT      STATE SERVICE  VERSION
+53/tcp    open  domain   dnsmasq 2.79
+80/tcp    open  http     BSkyB router
+4444/tcp  open  rtsp
+4567/tcp  open  ssl/rtsp
+5431/tcp  open  upnp     Sky Home Hub SR102 upnpd
+31337/tcp open  Elite?
+49163/tcp open  upnp     Cisco-Linksys E4200 WAP upnpd (UPnP 1.0)
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port4444-TCP:V=7.92%I=7%D=11/25%Time=6380090A%P=i686-pc-windows-windows
+SF:%r(GetRequest,29B,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nServer:\x20api
+SF:d\x201\.0\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:06\x20GMT\r\nV
+SF:ary:\x20Accept-Encoding,\x20Origin\r\nCache-Control:\x20no-cache,no-sto
+SF:re\r\nContent-Type:\x20text/html;\x20charset=%s\r\nConnection:\x20close
+SF:\r\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01\x
+SF:20Transitional//EN\"\x20\"http://www\.w3\.org/TR/html4/loose\.dtd\">\n\
+SF:n<html>\n\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20http-equiv=\"Conten
+SF:t-type\"\x20content=\"text/html;charset=UTF-8\">\n\x20\x20\x20\x20<titl
+SF:e>400\x20Bad\x20Request</title>\n\x20\x20</head>\n\n\x20\x20<body\x20bg
+SF:color=\"#cc9999\"\x20text=\"#000000\"\x20link=\"#2020ff\"\x20vlink=\"#4
+SF:040cc\">\n\n\x20\x20\x20\x20<h4>400\x20Bad\x20Request</h4>\nInternal\x2
+SF:0Error\x202\.\n\x20\x20\x20\x20<hr>\n\n\x20\x20\x20\x20<address><a\x20h
+SF:ref=\"https://www\.meetcircle\.com/\">apid\x201\.0</a></address>\n\n\x2
+SF:0\x20</body>\n\n</html>\n")%r(GenericLines,29C,"\(null\)\x20400\x20Bad\
+SF:x20Request\r\nServer:\x20apid\x201\.0\r\nDate:\x20Fri,\x2025\x20Nov\x20
+SF:2022\x2000:15:21\x20GMT\r\nVary:\x20Accept-Encoding,\x20Origin\r\nCache
+SF:-Control:\x20no-cache,no-store\r\nContent-Type:\x20text/html;\x20charse
+SF:t=%s\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-/
+SF:/W3C//DTD\x20HTML\x204\.01\x20Transitional//EN\"\x20\"http://www\.w3\.o
+SF:rg/TR/html4/loose\.dtd\">\n\n<html>\n\n\x20\x20<head>\n\x20\x20\x20\x20
+SF:<meta\x20http-equiv=\"Content-type\"\x20content=\"text/html;charset=UTF
+SF:-8\">\n\x20\x20\x20\x20<title>400\x20Bad\x20Request</title>\n\x20\x20</
+SF:head>\n\n\x20\x20<body\x20bgcolor=\"#cc9999\"\x20text=\"#000000\"\x20li
+SF:nk=\"#2020ff\"\x20vlink=\"#4040cc\">\n\n\x20\x20\x20\x20<h4>400\x20Bad\
+SF:x20Request</h4>\nCan't\x20parse\x20request\.\n\x20\x20\x20\x20<hr>\n\n\
+SF:x20\x20\x20\x20<address><a\x20href=\"https://www\.meetcircle\.com/\">ap
+SF:id\x201\.0</a></address>\n\n\x20\x20</body>\n\n</html>\n")%r(HTTPOption
+SF:s,2B5,"HTTP/1\.0\x20501\x20Not\x20Implemented\r\nServer:\x20apid\x201\.
+SF:0\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:21\x20GMT\r\nVary:\x20
+SF:Accept-Encoding,\x20Origin\r\nCache-Control:\x20no-cache,no-store\r\nCo
+SF:ntent-Type:\x20text/html;\x20charset=%s\r\nConnection:\x20close\r\n\r\n
+SF:<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01\x20Transi
+SF:tional//EN\"\x20\"http://www\.w3\.org/TR/html4/loose\.dtd\">\n\n<html>\
+SF:n\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20http-equiv=\"Content-type\"
+SF:\x20content=\"text/html;charset=UTF-8\">\n\x20\x20\x20\x20<title>501\x2
+SF:0Not\x20Implemented</title>\n\x20\x20</head>\n\n\x20\x20<body\x20bgcolo
+SF:r=\"#cc9999\"\x20text=\"#000000\"\x20link=\"#2020ff\"\x20vlink=\"#4040c
+SF:c\">\n\n\x20\x20\x20\x20<h4>501\x20Not\x20Implemented</h4>\nThat\x20met
+SF:hod\x20is\x20not\x20implemented\.\n\x20\x20\x20\x20<hr>\n\n\x20\x20\x20
+SF:\x20<address><a\x20href=\"https://www\.meetcircle\.com/\">apid\x201\.0<
+SF:/a></address>\n\n\x20\x20</body>\n\n</html>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port4567-TCP:V=7.92%T=SSL%I=7%D=11/25%Time=6380091D%P=i686-pc-windows-w
+SF:indows%r(GenericLines,29C,"\(null\)\x20400\x20Bad\x20Request\r\nServer:
+SF:\x20apid\x201\.0\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:25\x20G
+SF:MT\r\nVary:\x20Accept-Encoding,\x20Origin\r\nCache-Control:\x20no-cache
+SF:,no-store\r\nContent-Type:\x20text/html;\x20charset=%s\r\nConnection:\x
+SF:20close\r\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x20
+SF:4\.01\x20Transitional//EN\"\x20\"http://www\.w3\.org/TR/html4/loose\.dt
+SF:d\">\n\n<html>\n\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20http-equiv=\
+SF:"Content-type\"\x20content=\"text/html;charset=UTF-8\">\n\x20\x20\x20\x
+SF:20<title>400\x20Bad\x20Request</title>\n\x20\x20</head>\n\n\x20\x20<bod
+SF:y\x20bgcolor=\"#cc9999\"\x20text=\"#000000\"\x20link=\"#2020ff\"\x20vli
+SF:nk=\"#4040cc\">\n\n\x20\x20\x20\x20<h4>400\x20Bad\x20Request</h4>\nCan'
+SF:t\x20parse\x20request\.\n\x20\x20\x20\x20<hr>\n\n\x20\x20\x20\x20<addre
+SF:ss><a\x20href=\"https://www\.meetcircle\.com/\">apid\x201\.0</a></addre
+SF:ss>\n\n\x20\x20</body>\n\n</html>\n")%r(GetRequest,29B,"HTTP/1\.0\x2040
+SF:0\x20Bad\x20Request\r\nServer:\x20apid\x201\.0\r\nDate:\x20Fri,\x2025\x
+SF:20Nov\x202022\x2000:15:25\x20GMT\r\nVary:\x20Accept-Encoding,\x20Origin
+SF:\r\nCache-Control:\x20no-cache,no-store\r\nContent-Type:\x20text/html;\
+SF:x20charset=%s\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html\x20PUBLI
+SF:C\x20\"-//W3C//DTD\x20HTML\x204\.01\x20Transitional//EN\"\x20\"http://w
+SF:ww\.w3\.org/TR/html4/loose\.dtd\">\n\n<html>\n\n\x20\x20<head>\n\x20\x2
+SF:0\x20\x20<meta\x20http-equiv=\"Content-type\"\x20content=\"text/html;ch
+SF:arset=UTF-8\">\n\x20\x20\x20\x20<title>400\x20Bad\x20Request</title>\n\
+SF:x20\x20</head>\n\n\x20\x20<body\x20bgcolor=\"#cc9999\"\x20text=\"#00000
+SF:0\"\x20link=\"#2020ff\"\x20vlink=\"#4040cc\">\n\n\x20\x20\x20\x20<h4>40
+SF:0\x20Bad\x20Request</h4>\nInternal\x20Error\x202\.\n\x20\x20\x20\x20<hr
+SF:>\n\n\x20\x20\x20\x20<address><a\x20href=\"https://www\.meetcircle\.com
+SF:/\">apid\x201\.0</a></address>\n\n\x20\x20</body>\n\n</html>\n")%r(HTTP
+SF:Options,2B5,"HTTP/1\.0\x20501\x20Not\x20Implemented\r\nServer:\x20apid\
+SF:x201\.0\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:25\x20GMT\r\nVar
+SF:y:\x20Accept-Encoding,\x20Origin\r\nCache-Control:\x20no-cache,no-store
+SF:\r\nContent-Type:\x20text/html;\x20charset=%s\r\nConnection:\x20close\r
+SF:\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01\x20
+SF:Transitional//EN\"\x20\"http://www\.w3\.org/TR/html4/loose\.dtd\">\n\n<
+SF:html>\n\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20http-equiv=\"Content-
+SF:type\"\x20content=\"text/html;charset=UTF-8\">\n\x20\x20\x20\x20<title>
+SF:501\x20Not\x20Implemented</title>\n\x20\x20</head>\n\n\x20\x20<body\x20
+SF:bgcolor=\"#cc9999\"\x20text=\"#000000\"\x20link=\"#2020ff\"\x20vlink=\"
+SF:#4040cc\">\n\n\x20\x20\x20\x20<h4>501\x20Not\x20Implemented</h4>\nThat\
+SF:x20method\x20is\x20not\x20implemented\.\n\x20\x20\x20\x20<hr>\n\n\x20\x
+SF:20\x20\x20<address><a\x20href=\"https://www\.meetcircle\.com/\">apid\x2
+SF:01\.0</a></address>\n\n\x20\x20</body>\n\n</html>\n");
+MAC Address: A0:BD:CD:6A:C9:19 (BSkyB)
+Service Info: Device: broadband router; CPE: cpe:/h:cisco:e4200
+
+Nmap scan report for SKY+HD (192.168.0.3)
+Host is up (0.0049s latency).
+Not shown: 984 filtered tcp ports (no-response)
+PORT      STATE  SERVICE         VERSION
+80/tcp    open   http            Sky
+5000/tcp  open   rtsp            Apple AirTunes rtspd 211.1 (Apple TV)
+5001/tcp  closed commplex-link
+6000/tcp  closed X11
+6100/tcp  closed synchronet-db
+8008/tcp  open   tcpwrapped
+8080/tcp  open   http-proxy      Sky
+8081/tcp  closed blackice-icecap
+9080/tcp  open   http            Mongoose httpd
+9091/tcp  open   websocket       WebSocket++ 0.4.0
+9998/tcp  closed distinct32
+9999/tcp  closed abyss
+49153/tcp open   unknown
+49155/tcp open   tcpwrapped
+49160/tcp open   unknown
+49163/tcp closed unknown
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.92%I=7%D=11/25%Time=6380090F%P=i686-pc-windows-windows%r
+SF:(HTTPOptions,77,"HTTP/1\.0\x20404\x20Not\x20Found\r\nContent-Length:\x2
+SF:00\r\nConnection:\x20keep-alive\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x
+SF:2000:15:04\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(RTSPRequest,74,"HTTP/1\
+SF:.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20c
+SF:lose\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:09\x20GMT\r\nServer
+SF::\x20Sky\r\n\r\n")%r(FourOhFourRequest,77,"HTTP/1\.0\x20404\x20Not\x20F
+SF:ound\r\nContent-Length:\x200\r\nConnection:\x20keep-alive\r\nDate:\x20F
+SF:ri,\x2025\x20Nov\x202022\x2000:15:14\x20GMT\r\nServer:\x20Sky\r\n\r\n")
+SF:%r(GenericLines,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Lengt
+SF:h:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x
+SF:2000:15:19\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(DNSVersionBindReqTCP,74
+SF:,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnect
+SF:ion:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:25\x20GMT\
+SF:r\nServer:\x20Sky\r\n\r\n")%r(DNSStatusRequestTCP,74,"HTTP/1\.0\x20400\
+SF:x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDa
+SF:te:\x20Fri,\x2025\x20Nov\x202022\x2000:15:25\x20GMT\r\nServer:\x20Sky\r
+SF:\n\r\n")%r(SSLSessionReq,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nCont
+SF:ent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\
+SF:x202022\x2000:15:31\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(TerminalServer
+SF:Cookie,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r
+SF:\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:3
+SF:1\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(TLSSessionReq,74,"HTTP/1\.0\x204
+SF:00\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\
+SF:nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:31\x20GMT\r\nServer:\x20Sk
+SF:y\r\n\r\n")%r(Kerberos,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nConten
+SF:t-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x2
+SF:02022\x2000:15:31\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(SMBProgNeg,74,"H
+SF:TTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection
+SF::\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:31\x20GMT\r\n
+SF:Server:\x20Sky\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.92%I=7%D=11/25%Time=6380090A%P=i686-pc-windows-windows
+SF:%r(HTTPOptions,BA,"HTTP/1\.1\x20405\x20405\x20Method\x20Not\x20Allowed\
+SF:r\nContent-Length:\x2069\r\nContent-Type:\x20text/plain;\x20charset=utf
+SF:-8\r\nServer:\x20vws/1\.0\r\n\r\nError\x20processing\x20REST\x20API\x20
+SF:method=OPTIONS,\x20path=\"/\",\x20query=\"sid=4066\"\.")%r(RTSPRequest,
+SF:74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConne
+SF:ction:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:04\x20GM
+SF:T\r\nServer:\x20Sky\r\n\r\n")%r(FourOhFourRequest,42,"HTTP/1\.1\x20403\
+SF:x20403\x20Forbidden\r\nContent-Length:\x200\r\nServer:\x20vws/1\.0\r\n\
+SF:r\n")%r(Socks5,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length
+SF::\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2
+SF:000:15:04\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(Socks4,74,"HTTP/1\.0\x20
+SF:400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r
+SF:\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:05\x20GMT\r\nServer:\x20S
+SF:ky\r\n\r\n")%r(GenericLines,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nC
+SF:ontent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20N
+SF:ov\x202022\x2000:15:05\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(DNSVersionB
+SF:indReqTCP,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x20
+SF:0\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:1
+SF:5:10\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(DNSStatusRequestTCP,74,"HTTP/
+SF:1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x2
+SF:0close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:10\x20GMT\r\nServ
+SF:er:\x20Sky\r\n\r\n")%r(SSLSessionReq,74,"HTTP/1\.0\x20400\x20Bad\x20Req
+SF:uest\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x
+SF:2025\x20Nov\x202022\x2000:15:16\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(Te
+SF:rminalServerCookie,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Le
+SF:ngth:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x20202
+SF:2\x2000:15:17\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(TLSSessionReq,74,"HT
+SF:TP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:
+SF:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:17\x20GMT\r\nS
+SF:erver:\x20Sky\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port49153-TCP:V=7.92%I=7%D=11/25%Time=6380090E%P=i686-pc-windows-window
+SF:s%r(mongodb,44,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20GW-Dev
+SF:ice/1\.0\.0\x20\(Sky,\x20ES140,\x20\)\r\n\r\n")%r(HTTPOptions,48,"HTTP/
+SF:1\.0\x20501\x20Not\x20Implemented\r\nSERVER:\x20GW-Device/1\.0\.0\x20\(
+SF:Sky,\x20ES140,\x20\)\r\n\r\n");
+MAC Address: D0:58:FC:1A:0F:3A (BSkyB)
+Service Info: OS: Mac OS X; Device: media device; CPE: cpe:/o:apple:mac_os_x
+
+Nmap scan report for SKY+HD (192.168.0.4)
+Host is up (0.018s latency).
+Not shown: 984 filtered tcp ports (no-response)
+PORT      STATE  SERVICE         VERSION
+80/tcp    closed http
+5000/tcp  open   rtsp            Apple AirTunes rtspd 211.1 (Apple TV)
+5001/tcp  closed commplex-link
+6000/tcp  closed X11
+6100/tcp  closed synchronet-db
+8008/tcp  open   tcpwrapped
+8080/tcp  open   http-proxy      Sky
+8081/tcp  closed blackice-icecap
+9080/tcp  closed glrpc
+9091/tcp  open   websocket       WebSocket++ 0.4.0
+9998/tcp  closed distinct32
+9999/tcp  closed abyss
+49153/tcp open   unknown
+49155/tcp closed unknown
+49160/tcp open   unknown
+49163/tcp closed unknown
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.92%I=7%D=11/25%Time=6380090A%P=i686-pc-windows-windows
+SF:%r(HTTPOptions,BB,"HTTP/1\.1\x20500\x20500\x20Internal\x20Server\x20Err
+SF:or\r\nContent-Length:\x2067\r\nContent-Type:\x20text/plain;\x20charset=
+SF:utf-8\r\nServer:\x20vws/1\.0\r\n\r\nError\x20processing\x20REST\x20API\
+SF:x20method=OPTIONS,\x20path=\"/\",\x20query=\"\(null\)\"\.")%r(RTSPReque
+SF:st,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nCo
+SF:nnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:04\x2
+SF:0GMT\r\nServer:\x20Sky\r\n\r\n")%r(FourOhFourRequest,D2,"HTTP/1\.1\x205
+SF:00\x20500\x20Internal\x20Server\x20Error\r\nContent-Length:\x2090\r\nCo
+SF:ntent-Type:\x20text/plain;\x20charset=utf-8\r\nServer:\x20vws/1\.0\r\n\
+SF:r\nError\x20processing\x20REST\x20API\x20method=GET,\x20path=\"/nice\x2
+SF:0ports,/Trinity\.txt\.bak\",\x20query=\"\(null\)\"\.")%r(Socks5,74,"HTT
+SF:P/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\
+SF:x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:04\x20GMT\r\nSe
+SF:rver:\x20Sky\r\n\r\n")%r(Socks4,74,"HTTP/1\.0\x20400\x20Bad\x20Request\
+SF:r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\
+SF:x20Nov\x202022\x2000:15:04\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(Generic
+SF:Lines,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\
+SF:nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:04
+SF:\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(DNSVersionBindReqTCP,74,"HTTP/1\.
+SF:0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20cl
+SF:ose\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:09\x20GMT\r\nServer:
+SF:\x20Sky\r\n\r\n")%r(DNSStatusRequestTCP,74,"HTTP/1\.0\x20400\x20Bad\x20
+SF:Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri
+SF:,\x2025\x20Nov\x202022\x2000:15:09\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r
+SF:(SSLSessionReq,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length
+SF::\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2
+SF:000:15:15\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(TerminalServerCookie,74,
+SF:"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnecti
+SF:on:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:15\x20GMT\r
+SF:\nServer:\x20Sky\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port49153-TCP:V=7.92%I=7%D=11/25%Time=63800914%P=i686-pc-windows-window
+SF:s%r(mongodb,44,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20MR-Dev
+SF:ice/1\.0\.0\x20\(Sky,\x20EM150,\x20\)\r\n\r\n")%r(HTTPOptions,48,"HTTP/
+SF:1\.0\x20501\x20Not\x20Implemented\r\nSERVER:\x20MR-Device/1\.0\.0\x20\(
+SF:Sky,\x20EM150,\x20\)\r\n\r\n");
+MAC Address: D0:58:FC:4B:3E:0A (BSkyB)
+Service Info: OS: Mac OS X; Device: media device; CPE: cpe:/o:apple:mac_os_x
+
+Nmap scan report for SkyBooster2 (192.168.0.7)
+Host is up (0.021s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+53/tcp    open  tcpwrapped
+80/tcp    open  http       BSkyB router
+31337/tcp open  Elite?
+49163/tcp open  upnp       Cisco-Linksys E4200 WAP upnpd (UPnP 1.0)
+MAC Address: 24:A7:DC:F9:F7:A1 (BSkyB)
+Service Info: Device: broadband router; CPE: cpe:/h:cisco:e4200
+
+Nmap scan report for 192.168.0.10
+Host is up (0.13s latency).
+All 1000 scanned ports on 192.168.0.10 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: 78:62:56:90:20:7B (Huawei Technologies)
+
+Nmap scan report for 192.168.0.11
+Host is up (0.020s latency).
+Not shown: 993 closed tcp ports (reset)
+PORT     STATE SERVICE    VERSION
+21/tcp   open  ftp        Brother/HP printer ftpd 1.13
+23/tcp   open  telnet     Brother/HP printer telnetd
+80/tcp   open  http       Debut embedded httpd 1.20 (Brother/HP printer http admin)
+443/tcp  open  ssl/http   Debut embedded httpd 1.20 (Brother/HP printer http admin)
+515/tcp  open  printer
+631/tcp  open  http       Debut embedded httpd 1.20 (Brother/HP printer http admin)
+9100/tcp open  jetdirect?
+MAC Address: A8:A7:95:16:BD:B3 (Hon Hai Precision Ind.)
+Service Info: Device: printer
+
+Nmap scan report for UNKNOWN (192.168.0.45)
+Host is up (0.0069s latency).
+Not shown: 993 filtered tcp ports (no-response)
+PORT      STATE  SERVICE    VERSION
+80/tcp    closed http
+1025/tcp  closed NFS-or-IIS
+1900/tcp  closed upnp
+8085/tcp  closed unknown
+8086/tcp  closed d-s-n
+9080/tcp  closed glrpc
+12345/tcp closed netbus
+MAC Address: 30:32:35:F8:7A:EA (Qingdao Intelligent&Precise Electronics)
+
+Nmap scan report for SKY+HD (192.168.0.46)
+Host is up (0.0073s latency).
+Not shown: 984 filtered tcp ports (no-response)
+PORT      STATE  SERVICE         VERSION
+80/tcp    closed http
+5000/tcp  open   rtsp            Apple AirTunes rtspd 211.1 (Apple TV)
+5001/tcp  closed commplex-link
+6000/tcp  closed X11
+6100/tcp  closed synchronet-db
+8008/tcp  open   tcpwrapped
+8080/tcp  open   http-proxy      vws/1.0
+8081/tcp  closed blackice-icecap
+9080/tcp  closed glrpc
+9091/tcp  open   websocket       WebSocket++ 0.4.0
+9998/tcp  closed distinct32
+9999/tcp  closed abyss
+49153/tcp open   unknown
+49155/tcp closed unknown
+49160/tcp open   unknown
+49163/tcp closed unknown
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.92%I=7%D=11/25%Time=63800919%P=i686-pc-windows-windows
+SF:%r(GetRequest,B7,"HTTP/1\.1\x20500\x20500\x20Internal\x20Server\x20Erro
+SF:r\r\nContent-Length:\x2063\r\nContent-Type:\x20text/plain;\x20charset=u
+SF:tf-8\r\nServer:\x20vws/1\.0\r\n\r\nError\x20processing\x20REST\x20API\x
+SF:20method=GET,\x20path=\"/\",\x20query=\"\(null\)\"\.")%r(HTTPOptions,BB
+SF:,"HTTP/1\.1\x20500\x20500\x20Internal\x20Server\x20Error\r\nContent-Len
+SF:gth:\x2067\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nServer:\
+SF:x20vws/1\.0\r\n\r\nError\x20processing\x20REST\x20API\x20method=OPTIONS
+SF:,\x20path=\"/\",\x20query=\"\(null\)\"\.")%r(RTSPRequest,74,"HTTP/1\.0\
+SF:x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20clos
+SF:e\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:19\x20GMT\r\nServer:\x
+SF:20Sky\r\n\r\n")%r(FourOhFourRequest,D2,"HTTP/1\.1\x20500\x20500\x20Inte
+SF:rnal\x20Server\x20Error\r\nContent-Length:\x2090\r\nContent-Type:\x20te
+SF:xt/plain;\x20charset=utf-8\r\nServer:\x20vws/1\.0\r\n\r\nError\x20proce
+SF:ssing\x20REST\x20API\x20method=GET,\x20path=\"/nice\x20ports,/Trinity\.
+SF:txt\.bak\",\x20query=\"\(null\)\"\.")%r(Socks5,74,"HTTP/1\.0\x20400\x20
+SF:Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:
+SF:\x20Fri,\x2025\x20Nov\x202022\x2000:15:19\x20GMT\r\nServer:\x20Sky\r\n\
+SF:r\n")%r(Socks4,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length
+SF::\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2
+SF:000:15:19\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(GenericLines,74,"HTTP/1\
+SF:.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnection:\x20c
+SF:lose\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:19\x20GMT\r\nServer
+SF::\x20Sky\r\n\r\n")%r(DNSVersionBindReqTCP,74,"HTTP/1\.0\x20400\x20Bad\x
+SF:20Request\r\nContent-Length:\x200\r\nConnection:\x20close\r\nDate:\x20F
+SF:ri,\x2025\x20Nov\x202022\x2000:15:24\x20GMT\r\nServer:\x20Sky\r\n\r\n")
+SF:%r(DNSStatusRequestTCP,74,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nConten
+SF:t-Length:\x200\r\nConnection:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x2
+SF:02022\x2000:15:25\x20GMT\r\nServer:\x20Sky\r\n\r\n")%r(SSLSessionReq,74
+SF:,"HTTP/1\.0\x20400\x20Bad\x20Request\r\nContent-Length:\x200\r\nConnect
+SF:ion:\x20close\r\nDate:\x20Fri,\x2025\x20Nov\x202022\x2000:15:31\x20GMT\
+SF:r\nServer:\x20Sky\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port49153-TCP:V=7.92%I=7%D=11/25%Time=63800921%P=i686-pc-windows-window
+SF:s%r(mongodb,44,"HTTP/0\.0\x20400\x20Bad\x20Request\r\nSERVER:\x20MR-Dev
+SF:ice/1\.0\.0\x20\(Sky,\x20EM150,\x20\)\r\n\r\n")%r(HTTPOptions,48,"HTTP/
+SF:1\.0\x20501\x20Not\x20Implemented\r\nSERVER:\x20MR-Device/1\.0\.0\x20\(
+SF:Sky,\x20EM150,\x20\)\r\n\r\n");
+MAC Address: D4:DA:CD:9B:6B:CA (BSkyB)
+Service Info: OS: Mac OS X; Device: media device; CPE: cpe:/o:apple:mac_os_x
+
+Nmap scan report for OPPO-A53 (192.168.0.47)
+Host is up (0.023s latency).
+All 1000 scanned ports on OPPO-A53 (192.168.0.47) are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: F6:64:B8:53:70:6B (Unknown)
+
+Nmap scan report for host.docker.internal (192.168.0.40)
+Host is up (0.00049s latency).
+Not shown: 992 closed tcp ports (reset)
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Apache httpd 2.4.51 ((Win64) OpenSSL/1.1.1l PHP/7.4.30)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http      Apache httpd 2.4.51 ((Win64) OpenSSL/1.1.1l PHP/7.4.30)
+445/tcp  open  microsoft-ds?
+808/tcp  open  mc-nmf        .NET Message Framing
+3306/tcp open  mysql         MySQL (unauthorized)
+5357/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Nov 25 00:18:23 2022 -- 50 IP addresses (10 hosts up) scanned in 313.34 seconds
