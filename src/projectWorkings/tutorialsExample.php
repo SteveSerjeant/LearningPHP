@@ -1,6 +1,7 @@
 <?php
 
-$file = simplexml_load_file("C:\Users\sarge\source\servicesFile.xml");
+$file = simplexml_load_file("C:\Users\sarge\source\scanResults.xml");
+echo "Scan Timestamp: " . $file['startstr']. "<br><br>";
 
 echo $file->hosthint[0]->address['addr'] . "<br>"; //output 192.168.0.11 - correct
 echo $file->hosthint[1]->address['addr'] . "<br><br>"; //output 192.168.0.7 - correct
@@ -38,21 +39,20 @@ echo $file->host[3]->ports->port[2]->service['name'] . "<br><br>"; //outputwrapp
 
 // output for following should match .11
 echo $file->host[5]->address['addr'] . "<br>";
-echo $file->host[5]->hostnames->hostname['name'] . "<br>";
-echo $file->host[5]->address[1]['addr'] . "<br>";
-echo $file->host[5]->ports->port[0]['portid'] . "<br>";
-echo $file->host[5]->ports->port[0]->state['state'] . "<br>";
-echo $file->host[5]->ports->port[0]->service['name'] . "<br><br>";
-echo $file->host[5]->ports->port[1]['portid'] . "<br>";
-echo $file->host[5]->ports->port[1]->state['state'] . "<br>";
-echo $file->host[5]->ports->port[1]->service['name'] . "<br><br>";
-echo $file->host[5]->ports->port[2]['portid'] . "<br>";
-echo $file->host[5]->ports->port[2]->state['state'] . "<br>";
-echo $file->host[5]->ports->port[2]->service['name'] . "<br><br>";
+//echo $file->host[5]->hostnames->hostname['name'] . "<br>";
+//echo $file->host[5]->address[1]['addr'] . "<br>";
+//echo $file->host[5]->ports->port[0]['portid'] . "<br>";
+//echo $file->host[5]->ports->port[0]->state['state'] . "<br>";
+//echo $file->host[5]->ports->port[0]->service['name'] . "<br><br>";
+//echo $file->host[5]->ports->port[1]['portid'] . "<br>";
+//echo $file->host[5]->ports->port[1]->state['state'] . "<br>";
+//echo $file->host[5]->ports->port[1]->service['name'] . "<br><br>";
+//echo $file->host[5]->ports->port[2]['portid'] . "<br>";
+//echo $file->host[5]->ports->port[2]->state['state'] . "<br>";
+//echo $file->host[5]->ports->port[2]->service['name'] . "<br><br>";
 
 // which it does!
 foreach ($file->host[2]->ports->port as $portid){
-
     echo $portid['portid'] . " " . $portid->state['state'] . " ".$portid->service['name'] . "<br>";
 }
 
